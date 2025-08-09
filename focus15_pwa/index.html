@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Focus15 Penguin</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b0c10">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Focus15 🐧</h1>
+    <p class="sub">15分間、何も操作しなければペンギンが育ちます。<br>触る／別タブへ行くと即失敗（成長 −5）。</p>
+
+    <section class="status">
+      <div class="stat"><span id="level">0</span><label>ペンギン成長</label></div>
+      <div class="stat"><span id="wins">0</span><label>完了</label></div>
+      <div class="stat"><span id="fails">0</span><label>失敗</label></div>
+    </section>
+
+    <section class="penguin" id="penguinStage">
+      <pre id="penguinAscii">（卵）
+  __
+ (__)</pre>
+      <div class="stageLabel" id="stageLabel">卵</div>
+    </section>
+
+    <section class="timerBox">
+      <div id="timer" class="timer">15:00</div>
+      <button id="startBtn" class="primary">15分 集中開始（触れたら −5）</button>
+      <button id="resetBtn" class="ghost">リセット（進捗クリア）</button>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay hidden" aria-hidden="true">
+    <div class="overlayContent">
+      <div class="countMsg">集中モード中…<br>15分間は一切操作しないでください</div>
+      <div class="hint">※クリック・キー操作・スクロール・他タブ移動は失敗になります</div>
+      <button id="emergencyBtn" class="danger">緊急終了（失敗：−5）</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').catch(console.error);
+      });
+    }
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+:root{
+  --bg:#0b0c10; --fg:#e6e6e6; --muted:#9aa0a6; --primary:#4caf50; --danger:#e53935; --card:#111317;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.container{max-width:720px;margin:0 auto;padding:32px 20px}
+h1{margin:0 0 8px;font-size:28px}
+.sub{margin:0 0 20px;color:var(--muted);line-height:1.5}
+
+.status{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.stat{background:var(--card);border-radius:16px;padding:16px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.stat span{display:block;font-size:28px;font-weight:700}
+.stat label{display:block;margin-top:4px;color:var(--muted);font-size:12px}
+
+.penguin{background:var(--card);border-radius:20px;padding:20px;display:flex;gap:16px;align-items:center;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.penguin pre{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:18px;line-height:1.15}
+.stageLabel{margin-left:auto;color:var(--muted);font-weight:600}
+
+.timerBox{display:flex;flex-direction:column;align-items:center;gap:12px;margin:24px 0}
+.timer{font-size:72px;font-weight:800;letter-spacing:2px}
+
+button{border:0;border-radius:14px;padding:14px 18px;font-weight:700;cursor:pointer}
+.primary{background:var(--primary);color:#101010;min-width:280px}
+.ghost{background:transparent;color:var(--muted);border:1px solid #2a2f36}
+.danger{background:var(--danger);color:#fff}
+
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:24px}
+.overlay .overlayContent{background:#0e1116;border:1px solid #20242c;border-radius:20px;max-width:520px;width:100%;padding:24px;box-shadow:0 10px 40px rgba(0,0,0,.45);text-align:center}
+.overlay .countMsg{font-size:18px;margin-bottom:8px}
+.overlay .hint{color:var(--muted);font-size:12px;margin-bottom:16px}
+.hidden{display:none}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#111317;color:#fff;border:1px solid #2b3138;border-radius:12px;padding:10px 14px;box-shadow:0 4px 20px rgba(0,0,0,.4)}
