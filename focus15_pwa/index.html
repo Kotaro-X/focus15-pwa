@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Focus15 Penguin</title>
-  <link rel="manifest" href="manifest.json">
+  <!-- マニフェストはリポジトリ名付きの絶対パス -->
+  <link rel="manifest" href="/focus15-pwa/manifest.json">
   <meta name="theme-color" content="#0b0c10">
-  <link rel="stylesheet" href="style.css">
+  <!-- CSSも絶対パスに変更 -->
+  <link rel="stylesheet" href="/focus15-pwa/style.css">
 </head>
 <body>
   <main class="container">
@@ -44,13 +46,15 @@
   <div id="toast" class="toast hidden"></div>
 
   <script>
-    // Register service worker
+    // Service Workerも絶対パス＋scope指定に変更
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js').catch(console.error);
+        navigator.serviceWorker.register('/focus15-pwa/service-worker.js', { scope: '/focus15-pwa/' })
+          .catch(console.error);
       });
     }
   </script>
-  <script src="app.js"></script>
+  <!-- JSも絶対パスに変更 -->
+  <script src="/focus15-pwa/app.js"></script>
 </body>
 </html>
